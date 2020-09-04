@@ -12,8 +12,7 @@ class Vector2D {
 			var a = v1.x+v2.x;
 			var b = v1.y+v2.y;
 		}
-		//var a = v1.x+ v2.x ?? v2;
-		//var b = v1.y+ v2.y ?? v2;
+
 		return new Vector2D(a, b);
 	}
 	static sub(v1, v2) {
@@ -72,20 +71,17 @@ class Vector2D {
 	
 	static normalize(v1) { // unit vector
 		let mag = Vector2D.magnitude(v1);
-		//console.log(mag)
 		let a, b;
 		if (mag) {
 			return Vector2D.div(v1, mag);
 		}else {
 			return new Vector2D();
 		}
-		//return new Vector2D(a, b);
 	}
 	static limit(l, v) {
 		var mag1 = Vector2D.magnitude(v);
 		var w, u = new Vector2D();
 		if(mag1 > l) {
-			//console.log(1);
 			w = Vector2D.normalize(v);
 			u = Vector2D.mul(w, l);
 
