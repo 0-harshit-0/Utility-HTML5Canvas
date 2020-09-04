@@ -19,9 +19,12 @@
 <h2>
 	Usage
 </h2>
-<h4>
-	Vector.js
-</h4>
-<code>
-	let x = new Vector();
-</code>
+<ul>
+	<li>Vector.js</li>
+	<p>
+		To create a new Object: <code>new Vector2D(x, y);</code>
+	  	<code>x</code>: the position on x-axis,<br/>
+	  	<code>y</code>: the position on y-axis
+	</p>
+        
+</ul>
