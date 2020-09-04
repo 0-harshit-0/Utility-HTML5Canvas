@@ -20,10 +20,10 @@
 	Usage
 </h2>
 <ul>
-	<li>Vector.js</li>
+	<li><h3>Vector.js</h3></li>
 	<p>
-		To create a new Object: <code>new Vector2D(x, y);</code>
-	  	<code>x</code>: the position on x-axis,<br/>
+		To create a new Object: <code>new Vector2D(x, y);</code><br>
+	  	<code>x</code>: the position on x-axis,<br>
 	  	<code>y</code>: the position on y-axis
 	</p>
         
