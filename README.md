@@ -31,10 +31,10 @@
 	</p>
 	<li><h3>shapes.js</h3></li>
 	<p>
-		In canvas where we need to write<br>
+		In canvas where we need to type<br>
 		<code>ctx.beginPath()
-			.
-			.
+			.<br>
+			.<br>
 			ctx.closePath()</code><br>
 	  	Using this library you can do it in just one line.
 		It can also be used to set colour.<br>
