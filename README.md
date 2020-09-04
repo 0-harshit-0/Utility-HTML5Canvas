@@ -25,6 +25,7 @@
 		To create a new Object: <code>new Vector2D(x, y);</code><br>
 	  	<code>x</code>: the position on x-axis,<br>
 	  	<code>y</code>: the position on y-axis
+		Default value of both axis is 0.
 	</p>
         
 </ul>
