@@ -22,6 +22,7 @@
 <ul>
 	<li><h3>Vector.js</h3></li>
 	<p>
+		You can use this library to perform various Vector related function.<br>
 		To create a new Object: <code>new Vector2D(x, y);</code><br>
 	  	<code>x</code>: the position on x-axis,<br>
 	  	<code>y</code>: the position on y-axis,<br>
@@ -34,10 +35,10 @@
 		<code>ctx.beginPath()
 			.
 			.
-			ctx.closePath()</code>
+			ctx.closePath()</code><br>
 	  	Using this library you can do it in just one line.
 		It can also be used to set colour.<br>
-		other not functions like: Line Width, Line cap, shadows, etc. need to be set on your own.
+		oOther functions like: Line Width, Line cap, shadows, etc. need to be set on your own.
 		For Detailed Guide refer <a href=#>Wiki</a>.
 	</p>
 </ul>
