@@ -22,23 +22,17 @@
 <ul>
 	<li><h3>Vector.js</h3></li>
 	<p>
-		You can use this library to perform various Vector related function.<br>
-		To create a new Object: <code>new Vector2D(x, y);</code><br>
+		You can use this library to perform various Vector related function.<br><br>
+		To create a new Object: <br><code>new Vector2D(x, y);</code><br>
 	  	<code>x</code>: the position on x-axis,<br>
 	  	<code>y</code>: the position on y-axis,<br>
-		Default value of both axis is 0.<br>
+		Default value of both axis is 0.<br><br>
 		For Detailed Guide refer <a href=#>Wiki</a>.
 	</p>
 	<li><h3>shapes.js</h3></li>
 	<p>
-		In canvas where we need to type<br>
-		<code>ctx.beginPath()
-			.<br>
-			.<br>
-			ctx.closePath()</code><br>
-	  	Using this library you can do it in just one line.
-		It can also be used to set colour.<br>
-		oOther functions like: Line Width, Line cap, shadows, etc. need to be set on your own.
+		This library can be used to draw shapes basic shapes provided in context interface as well as complex shapes like pentagon, hexagon, etc. which are not supported in canvas directly. It can also be used to set colour.<br>
+		Other functions like: Line Width, Line cap, shadows, etc. need to be set on your own.<br><br>
 		For Detailed Guide refer <a href=#>Wiki</a>.
 	</p>
 </ul>
