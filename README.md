@@ -22,7 +22,7 @@
 <ul>
 	<li><h3>Vector.js</h3></li>
 	<p>
-		You can use this library to create a 2D vector object and perform various Vector related function.<br><br>
+		You can use this library to create a 2D vector object and perform various Vector related function.<br>
 		To create a new Object: <br><code>new Vector2D(x, y);</code><br>
 		<code>x</code>: the position on x-axis,<br>
 		<code>y</code>: the position on y-axis,<br>
