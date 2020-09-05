@@ -27,7 +27,7 @@
 		<code>x</code>: the position on x-axis,<br>
 		<code>y</code>: the position on y-axis,<br>
 		Default value of both axis is 0.<br><br>
-		For Detailed Guide refer <a href=#>Wiki</a>.
+		For Detailed Guide refer <a href='https://github.com/0-harshit-0/Utility-HTML5Canvas/wiki/Guide'>Wiki</a>.
 	</p>
 	<li><h3>shapes.js</h3></li>
 	<p>
