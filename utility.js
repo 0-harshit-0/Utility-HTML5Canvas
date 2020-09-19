@@ -1,3 +1,30 @@
+class Stack {
+	constructor() {
+		this.index = 0;
+		this.stackarray = new Array();
+	}
+	push(value) {
+		//if (this.index >= 10) throw 'Stack is full';
+		this.stackarray.unshift(value);
+		this.index++;
+		return this.stackarray;
+	}
+	pop() {
+		this.index--;
+		if (this.index < 0) {
+			this.index = 0;
+			throw 'Stack is empty';
+		}
+		return this.stackarray.shift();
+		//return this.stackarray;
+	}
+	static peek() {
+		return this.stackarray;
+	}
+}
+
+let myStack = new Stack();
+
 
 class Vector2D {
 	constructor(x = 0, y = 0) {
@@ -116,55 +143,12 @@ class Vector2D {
 	}
 }
 
-
 class Shapes {
 	constructor(context) {
 		this.c = context;
 		//console.log('working');
 
 		//c/tx.lineCap = 'round';
-	}
-	strokeLine(a, b, c, d, colour) {
-		this.c.beginPath();
-		this.c.strokeStyle = colour;
-		this.c.moveTo(a, b);
-		this.c.lineTo(c, d);
-		this.c.stroke();
-		this.c.closePath();
-	}
-	fillLine(a, b, c, d, colour) {
-		this.c.beginPath();
-		this.c.fillStyle = colour;
-		this.c.moveTo(a, b);
-		this.c.lineTo(c, d);
-		this.c.fill();
-		this.c.closePath();
-	}
-	fillBox(x, y, w, h, colour) {
-		this.c.beginPath();
-		this.c.fillStyle = colour;
-		this.c.fillRect(x, y, w, h);
-		this.c.closePath();
-	}
-	strokeBox(x, y, w, h, colour) {
-		this.c.beginPath();
-		this.c.strokeStyle = colour;
-		this.c.strokeRect(x, y, w, h);
-		this.c.closePath();
-	}
-	strokeCir(x, y, r, colour) {
-		this.c.beginPath();
-		this.c.strokeStyle = colour;
-		this.c.arc(x, y, r, 0, Math.PI*2, false);
-		this.c.stroke();
-		this.c.closePath();
-	}
-	fillCir(x, y, r, colour) {
-		this.c.beginPath();
-		this.c.strokeStyle = colour;
-		this.c.arc(x, y, r, 0, Math.PI*2, false);
-		this.c.fill();
-		this.c.closePath();
 	}
 
 	//storke and fill
@@ -174,8 +158,6 @@ class Shapes {
 		this.c.fillStyle = colourF;
 		this.c.moveTo(a, b);
 		this.c.lineTo(c, d);
-		this.c.stroke();
-		this.c.fill();
 		this.c.closePath();
 	}
 	
@@ -183,8 +165,7 @@ class Shapes {
 		this.c.beginPath();
 		this.c.strokeStyle = colourS;
 		this.c.fillStyle = colourF;
-		this.c.fillRect(x, y, w, h);
-		this.c.strokeRect(x, y, w, h);
+		this.c.rect(x, y, w, h);
 		this.c.closePath();
 	}
 	circle(x, y, r, colourS, colourF) {
@@ -192,8 +173,6 @@ class Shapes {
 		this.c.strokeStyle = colourS;
 		this.c.fillStyle = colourF;
 		this.c.arc(x, y, r, 0, Math.PI*2, false);
-		this.c.stroke();
-		this.c.fill();
 		this.c.closePath();
 	}
 
