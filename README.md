@@ -13,11 +13,11 @@
 <p>
 	Just download the file or clone it.<br>
 	Include the utility.js file in your html file.<br>
-	<code><script type="application/js" src="utility.js" defer></code><br>
+	<code><script type="application/js" src="utility.js" defer></code><br><br>
 	If you want seperate files, navigate to assets folder and include it in your html file.<br>
         <code>
-		<script type="application/js" src="assets/shapes.js" defer>
-		<script type="application/js" src="assets/vector.js" defer>
+		<script type="application/js" src="assets/shapes.js" defer><br>
+		<script type="application/js" src="assets/vector.js" defer><br>
 		<script type="application/js" src="assets/stack.js" defer>
 	</code>
 </p>
