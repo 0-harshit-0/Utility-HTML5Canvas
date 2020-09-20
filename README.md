@@ -12,20 +12,20 @@
 </h2>
 <p>
 	Just download the file or clone it.<br><br>
-	Include the utility.js file in your html file.<br><br>
-	<code><script type="application/js" src="utility.js" defer></code><br><br>
+	Include the utility.js file in your html file.<br>
+		<code><script type="application/js" src="utility.js" defer></code><br><br>
 	If you want seperate files, navigate to assets folder and include it in your html file.<br>
-        <code>
-		<script type="application/js" src="assets/shapes.js" defer><br>
-	</code>
+		<code>
+			<script type="application/js" src="assets/shapes.js" defer><br>
+		</code>
 	<br>
-	<code>
-		<script type="application/js" src="assets/vector.js" defer>
-	</code>
+		<code>
+			<script type="application/js" src="assets/vector.js" defer>
+		</code>
 	<br>
-	<code>
-		<script type="application/js" src="assets/stack.js" defer>
-	</code>
+		<code>
+			<script type="application/js" src="assets/stack.js" defer>
+		</code>
 </p>
 <hr>
 <h2>
