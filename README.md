@@ -20,6 +20,11 @@
 	Usage
 </h2>
 <ul>
+	<li><h3>Stack.js</h3></li>
+	<p>
+		You can use this library to create a Stack Data Structure.<br><br>
+		For Detailed Guide refer <a href='https://github.com/0-harshit-0/Utility-HTML5Canvas/wiki/Guide'>Wiki</a>.
+	</p>
 	<li><h3>Vector.js</h3></li>
 	<p>
 		You can use this library to create a 2D vector object and perform various Vector related function.<br><br>
