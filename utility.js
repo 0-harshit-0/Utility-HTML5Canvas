@@ -150,30 +150,30 @@ class Shapes {
 
 		//c/tx.lineCap = 'round';
 	}
-
+	fill(clr) {
+		this.c.fillStyle = clr;
+		this.c.fill();
+	}
+	stroke(clr) {
+		this.c.strokeStyle = clr;
+		this.c.stroke();
+	}
 	//storke and fill
-	line(a, b, c, d, colourS, colourF) {
+	line(a, b, c, d) {
 		this.c.beginPath();
-		this.c.strokeStyle = colourS;
-		this.c.fillStyle = colourF;
 		this.c.moveTo(a, b);
 		this.c.lineTo(c, d);
-		this.c.closePath();
+		//this.c.closePath();
 	}
-	
-	box(x, y, w, h, colourS, colourF) {
+	box(x, y, w, h) {
 		this.c.beginPath();
-		this.c.strokeStyle = colourS;
-		this.c.fillStyle = colourF;
 		this.c.rect(x, y, w, h);
-		this.c.closePath();
+		//this.c.closePath();
 	}
-	circle(x, y, r, colourS, colourF) {
+	circle(x, y, r) {
 		this.c.beginPath();
-		this.c.strokeStyle = colourS;
-		this.c.fillStyle = colourF;
 		this.c.arc(x, y, r, 0, Math.PI*2, false);
-		this.c.closePath();
+		//this.c.closePath();
 	}
 
 	//still working
