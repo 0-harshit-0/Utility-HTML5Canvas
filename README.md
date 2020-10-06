@@ -1,11 +1,5 @@
 <h1>Utility-HTML5Canvas</h1>
 
-<h2>
-	Description
-</h2>
-<p>
-	This library is feature-rich, can be used in any kind of HTML5 Canvas (2d) projects and easy to use.
-</p>
 <hr>
 <h2>
 	Installation
