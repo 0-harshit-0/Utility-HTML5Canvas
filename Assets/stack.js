@@ -10,7 +10,7 @@ class Stack {
 		this.stackarray.unshift(value);
 		this.index++;
 
-		//return this.stackarray[];
+		return value;
 	}
 	pop() {
 		this.index--;
