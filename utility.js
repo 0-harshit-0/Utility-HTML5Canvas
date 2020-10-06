@@ -1,13 +1,16 @@
 class Stack {
-	constructor() {
+	constructor(size = 10) {
+		this.s = size;
 		this.index = 0;
-		this.stackarray = new Array();
+		this.stackarray = new Array(this.s);
 	}
 	push(value) {
-		//if (this.index >= 10) throw 'Stack is full';
+		if (this.index >= 10) throw 'Stack is full';
+
 		this.stackarray.unshift(value);
 		this.index++;
-		return this.stackarray;
+
+		return value;
 	}
 	pop() {
 		this.index--;
@@ -18,12 +21,14 @@ class Stack {
 		return this.stackarray.shift();
 		//return this.stackarray;
 	}
-	static peek() {
+	peek() {
 		return this.stackarray;
 	}
 }
 
 let myStack = new Stack();
+
+
 
 
 class Vector2D {
@@ -175,38 +180,19 @@ class Shapes {
 		this.c.arc(x, y, r, 0, Math.PI*2, false);
 		//this.c.closePath();
 	}
-
-	//still working
-	fillEqTri(l, colour) {
+	ellipse(x=20, y=20, rX=20, rY=20, startAngle=0, endAngle=0, rotate=0, anticlock=false) {
 		this.c.beginPath();
-		this.c.fillStyle = colour;
-		this.c.moveTo(l*(Math.sqrt(3)/3) * Math.cos(Math.PI/180*0), l*(Math.sqrt(3)/3) * Math.sin(Math.PI/180*0));
-		this.c.lineTo(l*(Math.sqrt(3)/3) * Math.cos(Math.PI/180*120), l*(Math.sqrt(3)/3) * Math.sin(Math.PI/180*120));
-		this.c.lineTo(l*(Math.sqrt(3)/3) * Math.cos(Math.PI/180*240), l*(Math.sqrt(3)/3) * Math.sin(Math.PI/180*240));
-		this.c.lineTo(l*(Math.sqrt(3)/3) * Math.cos(Math.PI/180*0), l*(Math.sqrt(3)/3) * Math.sin(Math.PI/180*0));
-		this.c.fill();
-		this.c.closePath();
+		this.c.ellipse(x, y, rX, rY, rotate, startAngle, endAngle, anticlock);
 	}
-	strokeEqTri(l, colour) {
+	eqTri(l=10, x=20, y=20, angle=0) {
+		this.c.save();
+		this.c.translate(x, y);
+		this.c.rotate(angle);
 		this.c.beginPath();
-		this.c.strokeStyle = colour;
 		this.c.moveTo(l*(Math.sqrt(3)/3) * Math.cos(Math.PI/180*0), l*(Math.sqrt(3)/3) * Math.sin(Math.PI/180*0));
 		this.c.lineTo(l*(Math.sqrt(3)/3) * Math.cos(Math.PI/180*120), l*(Math.sqrt(3)/3) * Math.sin(Math.PI/180*120));
 		this.c.lineTo(l*(Math.sqrt(3)/3) * Math.cos(Math.PI/180*240), l*(Math.sqrt(3)/3) * Math.sin(Math.PI/180*240));
 		this.c.lineTo(l*(Math.sqrt(3)/3) * Math.cos(Math.PI/180*0), l*(Math.sqrt(3)/3) * Math.sin(Math.PI/180*0));
-		this.c.stroke();
-		this.c.closePath();
-	} 
-	EqTri(l, colourS, colourF) {
-		this.c.beginPath();
-		this.c.strokeStyle = colourS;
-		this.c.fillStyle = colourF;
-		this.c.moveTo(l*(Math.sqrt(3)/3) * Math.cos(Math.PI/180*0), l*(Math.sqrt(3)/3) * Math.sin(Math.PI/180*0));
-		this.c.lineTo(l*(Math.sqrt(3)/3) * Math.cos(Math.PI/180*120), l*(Math.sqrt(3)/3) * Math.sin(Math.PI/180*120));
-		this.c.lineTo(l*(Math.sqrt(3)/3) * Math.cos(Math.PI/180*240), l*(Math.sqrt(3)/3) * Math.sin(Math.PI/180*240));
-		this.c.lineTo(l*(Math.sqrt(3)/3) * Math.cos(Math.PI/180*0), l*(Math.sqrt(3)/3) * Math.sin(Math.PI/180*0));
-		this.c.stroke();
-		this.c.fill();
-		this.c.closePath();
-	} 
+		this.c.restore();
+	}
 }
