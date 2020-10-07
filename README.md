@@ -6,7 +6,7 @@
 </h2>
 <p>
 	Just download the file or clone it.<br>
-	![download example](https://raw.githubusercontent.com/0-harshit-0/Utility-HTML5Canvas/blob/master/res/download.png)<br><br>
+	<img src='./res/download.png'><br><br>
 	Include the utility.js file in your html file.<br>
 		<code><script type="application/js" src="utility.js" defer></code><br><br>
 	If you want seperate files, navigate to assets folder and include it in your html file.<br>
@@ -24,7 +24,7 @@
 </p>
 <hr>
 <h2>
-	descriptions & Usage
+	Usage
 </h2>
 <ul>
 	<li><h3>Stack.js</h3></li>
