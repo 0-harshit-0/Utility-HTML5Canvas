@@ -5,7 +5,8 @@
 	Installation
 </h2>
 <p>
-	Just download the file or clone it.<br><br>
+	Just download the file or clone it.<br>
+	![download example](/res/download.png)<br><br>
 	Include the utility.js file in your html file.<br>
 		<code><script type="application/js" src="utility.js" defer></code><br><br>
 	If you want seperate files, navigate to assets folder and include it in your html file.<br>
