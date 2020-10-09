@@ -11,15 +11,15 @@
 		<code><script type="application/js" src="utility.js" defer></code><br><br>
 	If you want seperate files, navigate to assets folder and include it in your html file.<br>
 		<code>
-			<script type="application/js" src="assets/shapes.js" defer><br>
+			<script type="application/js" src="/Assets/shapes.js" defer><br>
 		</code>
 	<br>
 		<code>
-			<script type="application/js" src="assets/vector.js" defer>
+			<script type="application/js" src="/Assets/vector.js" defer>
 		</code>
 	<br>
 		<code>
-			<script type="application/js" src="assets/stack.js" defer>
+			<script type="application/js" src="/Assets/stack.js" defer>
 		</code>
 </p>
 <hr>
