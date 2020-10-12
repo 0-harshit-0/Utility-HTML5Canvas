@@ -6,15 +6,19 @@
     <link href="./themes/prism.css" rel="stylesheet" />
 </head>
 <body>
+    <header>
+        <button type="button" id="run">Run</button>
+    </header>
+    
     <div class="row">
         <div class="column">
             <div contenteditable="true" class="editor language-js"></div>
         </div>
         <div class="column">
-            <canvas class="canvas"></canvas>
+            <canvas id="canvas"></canvas>
         </div>
       </div>
-      <div class="console">
+      <div id="console">
         Console
     </div>
 
