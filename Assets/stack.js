@@ -1,4 +1,4 @@
-class Stack {
+export class Stack {
 	constructor(size = 10) {
 		this.s = size;
 		this.index = 0;

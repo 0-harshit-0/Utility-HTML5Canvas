@@ -1,6 +1,6 @@
 import {CodeJar} from "https://cdn.jsdelivr.net/npm/codejar@3.1.0/codejar.min.js";
 import {withLineNumbers} from "https://cdn.jsdelivr.net/npm/codejar@3.1.0/linenumbers.js";
-
+import {Stack} from "./Assets/stack.js";
 
 let main = function() {
     const jar = new CodeJar(
@@ -24,7 +24,16 @@ let main = function() {
 }
 
 let executeCode = function(codeString) {
-    console.log(eval(codeString));
+    let output = document.getElementsByClassName("console");
+    // let Stack = require("./Assets/stack");
+    let log = [];
+    let printOut = function(expression) {
+        log.push(expression);
+        console.log(log);
+        output[0].innerText = log.toString();
+    }
+
+    eval(codeString);
 }
 
 window.onload = function() {
