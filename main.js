@@ -1,13 +1,12 @@
 import {CodeJar} from "https://cdn.jsdelivr.net/npm/codejar@3.1.0/codejar.min.js";
 import {withLineNumbers} from "https://cdn.jsdelivr.net/npm/codejar@3.1.0/linenumbers.js";
 import {Stack} from "./Assets/stack.js";
+import {Vector2D} from "./Assets/vector.js";
+import {Shapes} from "./Assets/shapes.js";
 
 class Editor {
-    constructor(editorID, canvasID, consoleID) {
-        this.editor = document.querySelector(".editor");
-        this.canvas = document.querySelector("#canvas");
-        this.console = document.querySelector("#console");
-        // console.log(this.console);
+    constructor() {
+        // initialize the code editor
         this.jar = new CodeJar(
             document.querySelector(".editor"), 
             withLineNumbers(Prism.highlightElement),
@@ -37,25 +36,45 @@ class Editor {
         });
     }
 
-    executeCode = function(codeString) {
+    executeCode(codeString) {
+        // this log is used to keep track of all the statements 
         let log = [];
 
-        let temp = this.console;
+        // this is required to run the prettifyLog() inside print()
+        let prettifyLog = this.prettifyLog;
+
         // function to let the user print 
         let print = function(expression) {
             log.push(expression);
-            console.log(temp);
-            // this.console.innerText = log.toString();
+            document.querySelector(".console").innerText = prettifyLog(log);
         }
-        console.log(this.console);
-        eval(codeString);
+
+        let getContext = function() {
+            return document.querySelector(".canvas").getContext('2d');
+        }
+        
+        // This executes the users code
+        try {
+            eval(codeString);
+        }
+        catch(error) {
+            temp.innerText = error;
+        }
+    }
+
+    // takes an array and returns a string with a new line character
+    // between each entry
+    prettifyLog(log) {
+        let str = "";
+
+        log.forEach( (elt, index) => {
+            str += elt;
+            str += "\n";
+        });
+    return str;
     }
 }
 
-let main = function() {
-    let editor = new Editor(1, 2, 3);
-}
-
 window.onload = function() {
-    main();
+    let editor = new Editor();
 }
