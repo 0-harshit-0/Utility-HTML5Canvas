@@ -1,5 +1,4 @@
-
-class Shapes {
+export class Shapes {
 	constructor(context) {
 		this.c = context;
 		//console.log('working');
