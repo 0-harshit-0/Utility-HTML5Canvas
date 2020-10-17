@@ -1,11 +1,9 @@
 class Stack {
-	constructor(size = 10) {
-		this.s = size;
+	constructor() {
 		this.index = 0;
-		this.stackarray = new Array(this.s);
+		this.stackarray = new Array();
 	}
 	push(value) {
-		if (this.index >= 10) throw 'Stack is full';
 
 		this.stackarray.unshift(value);
 		this.index++;
@@ -13,19 +11,44 @@ class Stack {
 		return value;
 	}
 	pop() {
-		this.index--;
+		
 		if (this.index < 0) {
 			this.index = 0;
 			throw 'Stack is empty';
 		}
+		this.index--;
 		return this.stackarray.shift();
 		//return this.stackarray;
 	}
-	peek() {
+	view() {
 		return this.stackarray;
 	}
 }
 
+class Queues {
+	constructor() {
+		this.s = 0;
+		this.queuearray = new Array();
+	}
+	push(value) {
+		
+		this.queuearray.push(value);
+		this.s++;
+
+		return value;
+	}
+	pop() {
+		if (!this.s) throw 'Queue is empty';
+		this.s--;
+		
+		return this.queuearray.shift();
+	}
+	view()  {
+		return this.queuearray;
+	}
+}
+
+var myQueue = new Queues();
 let myStack = new Stack();
 
 
@@ -147,7 +170,8 @@ class Vector2D {
 		return Math.sqrt((a**2)+(b**2));
 	}
 }
-
+//combine vector and shapes
+//stroke width
 class Shapes {
 	constructor(context) {
 		this.c = context;
@@ -184,15 +208,40 @@ class Shapes {
 		this.c.beginPath();
 		this.c.ellipse(x, y, rX, rY, rotate, startAngle, endAngle, anticlock);
 	}
-	eqTri(l=10, x=20, y=20, angle=0) {
+	eqTri(l, x, y, angle=0) {
+		let theta = 0;
+		let thetainc = Math.floor(360/3);
 		this.c.save();
 		this.c.translate(x, y);
 		this.c.rotate(angle);
 		this.c.beginPath();
-		this.c.moveTo(l*(Math.sqrt(3)/3) * Math.cos(Math.PI/180*0), l*(Math.sqrt(3)/3) * Math.sin(Math.PI/180*0));
-		this.c.lineTo(l*(Math.sqrt(3)/3) * Math.cos(Math.PI/180*120), l*(Math.sqrt(3)/3) * Math.sin(Math.PI/180*120));
-		this.c.lineTo(l*(Math.sqrt(3)/3) * Math.cos(Math.PI/180*240), l*(Math.sqrt(3)/3) * Math.sin(Math.PI/180*240));
-		this.c.lineTo(l*(Math.sqrt(3)/3) * Math.cos(Math.PI/180*0), l*(Math.sqrt(3)/3) * Math.sin(Math.PI/180*0));
+
+		this.c.moveTo(l * Math.cos(theta), l * Math.sin(theta));
+
+		for (var i = 0; i < 3; i++) {
+			theta += thetainc*Math.PI/180;
+			this.c.lineTo(l* Math.cos(theta), l * Math.sin(theta));
+
+		}
+		this.c.closePath();
+		this.c.restore();
+	}
+	complex(l, x, y, sides=3, angle=0) {
+		let theta = 0;
+		let thetainc = Math.floor(360/sides);
+		this.c.save();
+		this.c.translate(x, y);
+		this.c.rotate(angle);
+		this.c.beginPath();
+
+		this.c.moveTo(l * Math.cos(theta), l * Math.sin(theta));
+
+		for (var i = 0; i < sides; i++) {
+			theta += thetainc*Math.PI/180;
+			this.c.lineTo(l* Math.cos(theta), l * Math.sin(theta));
+
+		}
+		this.c.closePath();
 		this.c.restore();
 	}
 }
