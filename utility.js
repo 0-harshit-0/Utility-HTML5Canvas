@@ -25,6 +25,7 @@ class Stack {
 	}
 }
 
+
 class Queues {
 	constructor() {
 		this.s = 0;
@@ -48,6 +49,179 @@ class Queues {
 	}
 }
 
+
+class Node {
+	constructor(data) {
+		this.d = data;
+		this.next = null;
+	}
+}
+
+class LinkedList {
+	constructor() {
+		this.head = null;
+		this.size = 0;
+		this.visited = false;
+	}
+	view() {
+		let curr = this.head;
+		while(curr) {
+			console.log(curr.d);
+			curr = curr.next;
+		}
+	}
+	add(element) {
+		let current;
+		let node  = new Node(element);
+		if (this.head == null) {
+			this.head = node;
+		}else {
+			current = this.head;
+			while(current.next != null) {
+				current = current.next;
+			}
+			current.next = node;
+		}
+		this.size++;
+		return element;
+	}
+	insert(element, index=0) {
+		if (index < 0 || index > this.size) {
+			return false;
+		}else {
+			let node = new Node(element);
+			let curr = this.head, prev;
+			if (index == 0) {
+				node.next = this.head;
+				this.head = node;
+			}else {
+				let i = 0;
+				while(i !== index) {
+					prev = curr;
+					curr = curr.next;
+					i++;
+				}
+				node.next = curr;
+				prev.next = node;
+			}
+			this.size++;
+			return element;
+		}
+	}
+	delete(element) {
+		let temp = false, curr = this.head, prev, i=0;
+		if (element == this.head.d) {
+			temp = true;
+			this.head = this.head.next;
+		}else {
+			while(curr.next !== null) {
+				i++;
+				prev = curr;
+				curr = curr.next;
+				if (curr.d == element) {
+					temp = true;
+					prev.next = curr.next;
+					break;
+				}
+			}
+		}
+		
+		if (temp) {
+			this.size--;
+			return i;
+		}else {
+			return temp;
+		}
+	}
+	remove(index=(this.size-1)) {
+		let temp;
+		if (index < 0 || index > this.size) {
+			return false;
+		}else {
+			let curr = this.head, prev;
+			if (index == 0) {
+				temp = this.head.d;
+				this.head = this.head.next;
+			}else {
+				let i = 0;
+				while(i !== index) {
+					prev = curr;
+					curr = curr.next;
+					i++;
+				}
+				temp = curr.d;
+				prev.next = curr.next;
+			}
+			this.size--;
+			return temp;
+		}
+	}
+}
+
+
+class Graph {
+	constructor(vertices=10) {
+		this.v = vertices;
+		this.list = new Array();
+
+		for (var i = 0; i < this.v; i++) {
+			this.list.push(new LinkedList());
+		}
+	}
+	addEdge(source, des) {
+		if (source >= 0 && source <= this.v && source !== des) {
+			this.list[source].add(des);
+		}
+	}
+	view() {
+		for (var i = 0; i < this.list.length; i++) {
+			console.log("list: "+i);
+			this.list[i].view();
+		}
+	}
+	//travers
+	dfs(root) {
+		console.log(root);
+		let l = this.list;
+		l[root].visited = true;
+		let curr = l[root];
+		let connections = l[root].size;
+
+		if (connections) {
+			for (var i = 0; i < connections; i++) {
+				let ele = l[root].remove(0);
+				if (!l[ele].visited) {
+					this.dfs(ele);
+					//visited = ele;
+				}
+			}
+		}
+	}
+
+	bfs(root) {
+		let q = new Queues();
+		let l = this.list;
+		l[root].visited = true;
+		q.push(root);
+
+		while(q.size) {
+			let v = q.pop();
+			console.log(v);
+			//if (v ) {}
+			let connections = l[v].size;
+			for (var i = 0; i < connections; i++) {
+				let ele = l[v].remove(0);
+				if (!l[ele].visited) {
+					l[ele].visited = true;
+					q.push(ele);
+				}
+			}
+		}
+	}
+}
+
+let g = new Graph();
+let ll = new LinkedList();
 var myQueue = new Queues();
 let myStack = new Stack();
 
