@@ -18,6 +18,13 @@ class LinkedList {
 			curr = curr.next;
 		}
 	}
+	iterate(n = 0) {
+		let curr = this.head;
+		for (var i = 0; i < n; i++) {
+			curr = curr.next;
+		}
+		return curr.d;
+	}
 	add(element) {
 		let current;
 		let node  = new Node(element);
