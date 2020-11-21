@@ -70,6 +70,13 @@ class LinkedList {
 			curr = curr.next;
 		}
 	}
+	iterate(n = 0) {
+		let curr = this.head;
+		for (var i = 0; i < n; i++) {
+			curr = curr.next;
+		}
+		return curr.d;
+	}
 	add(element) {
 		let current;
 		let node  = new Node(element);
@@ -181,7 +188,7 @@ class Graph {
 	}
 	//travers
 	dfs(root) {
-		console.log(root);
+		//console.log(root);
 		let l = this.list;
 		l[root].visited = true;
 		let curr = l[root];
@@ -219,13 +226,6 @@ class Graph {
 		}
 	}
 }
-
-let g = new Graph();
-let ll = new LinkedList();
-var myQueue = new Queues();
-let myStack = new Stack();
-
-
 
 
 class Vector2D {
@@ -353,11 +353,11 @@ class Shapes {
 
 		//c/tx.lineCap = 'round';
 	}
-	fill(clr) {
+	fill(clr = 'black') {
 		this.c.fillStyle = clr;
 		this.c.fill();
 	}
-	stroke(clr) {
+	stroke(clr = 'black') {
 		this.c.strokeStyle = clr;
 		this.c.stroke();
 	}
