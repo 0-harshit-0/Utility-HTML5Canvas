@@ -5,26 +5,33 @@
 	Installation
 </h2>
 <p>
-	Just download the file or clone it.<br>
+	Download the file or clone it.<br>
 	<img src='./res/download.png'><br><br>
 	Include the utility.js file in your html file.<br>
-		<code><script type="application/js" src="utility.js" defer></code><br><br>
+	<code><script type="application/js" src="utility.js" defer></code>
+	<br><br>
 	If you want seperate files, navigate to 'src' folder and include it in your html file.<br>
-		<code>
-			<script type="application/js" src="/src/shapes.js" defer><br>
-		</code>
+	<code>
+		<script type="application/js" src="/src/shapes.js" defer><br>
+	</code>
 	<br>
-		<code>
-			<script type="application/js" src="/src/vector.js" defer>
-		</code>
+	<code>
+		<script type="application/js" src="/src/vector.js" defer>
+	</code>
 	<br>
-		<code>
-			<script type="application/js" src="/src/stack.js" defer>
-		</code>
+	<code>
+		<script type="application/js" src="/src/stack.js" defer>
+	</code>
 	<br>
-		<code>
-			<script type="application/js" src="/src/queue.js" defer>
-		</code>
+	<code>
+		<script type="application/js" src="/src/queue.js" defer>
+	</code>
+	<br><br>
+	You can also use the JsFiddle CDN:<br>
+	<code>
+		originial: <script type="application/js" src="https://cdn.jsdelivr.net/gh/0-harshit-0/Utility-HTML5Canvas/utility.js" defere>
+		mini: <script type="application/js" src="https://cdn.jsdelivr.net/gh/0-harshit-0/Utility-HTML5Canvas/utility.min.js" defere>
+	</code>
 </p>
 <hr>
 <h2>
