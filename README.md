@@ -32,7 +32,7 @@
 <ul>
 	<li><h3>Data Structures</h3></li>
 	<p>
-		This librry provides data structures like stack and queue for now, more will be added soon.<br><br>
+		You can use stack, queue, linked list and grap DS for now, more will be added soon.<br><br>
 		For Detailed Guide refer <a href='https://github.com/0-harshit-0/Utility-HTML5Canvas/wiki'>Wiki</a>.
 	</p>
 	<li><h3>Vectors</h3></li>
