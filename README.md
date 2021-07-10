@@ -14,10 +14,10 @@
 <p>
 	If you want seperate files, navigate to 'src' folder and include it in your html file.
 	
-	<script type="application/js" src="/src/shapes.js" defer><br>
-	<script type="application/js" src="/src/vector.js" defer>
-	<script type="application/js" src="/src/stack.js" defer>
-	<script type="application/js" src="/src/queue.js" defer>
+	<script type="text/javascript" src="/src/shapes.js" defer><br>
+	<script type="text/javascript" src="/src/vector.js" defer>
+	<script type="text/javascript" src="/src/stack.js" defer>
+	<script type="text/javascript" src="/src/queue.js" defer>
 </p>
 <p>
 	You can also use the JsFiddle CDN:
