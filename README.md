@@ -22,8 +22,8 @@
 <p>
 	You can also use the JsFiddle CDN:
 	
-	<script type="application/js" src="https://cdn.jsdelivr.net/gh/0-harshit-0/Utility-HTML5Canvas/utility.js" defere>
-	<script type="application/js" src="https://cdn.jsdelivr.net/gh/0-harshit-0/Utility-HTML5Canvas/utility.min.js" defere>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/0-harshit-0/Utility-HTML5Canvas/utility.js" defere></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/0-harshit-0/Utility-HTML5Canvas/utility.min.js" defere></script>
 </p>
 <hr>
 <h2>
