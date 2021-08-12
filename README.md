@@ -9,7 +9,7 @@
 	<img src='./res/download.png'><br><br>
 	Include the utility.js file in your html file.
 	
-	<script type="application/js" src="utility.js" defer>
+	<script type="text/javascript" src="utility.js" defer>
 </p>
 <p>
 	If you want seperate files, navigate to 'src' folder and include it in your html file.
