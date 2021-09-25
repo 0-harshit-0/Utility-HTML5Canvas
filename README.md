@@ -1,5 +1,10 @@
 <h1>Utility-HTML5Canvas</h1>
-
+<!--
+JavaScript library for HTML5 Canvas API. It is feature-rich, adaptable and easy to use:
+1) Object oriented,
+2) data structures(stack, queue, vectors),
+3) various vector functions,
+4) supports shapes of 'N' dimension.-->
 <hr>
 <h2>
 	Installation
