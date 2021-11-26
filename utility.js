@@ -359,6 +359,9 @@ class Shapes {
 		this.c.strokeStyle = clr;
 		this.c.stroke();
 	}
+	clear(x=0,y=0,w=10,h=10) {
+		this.c.clearRect(x,y,w,h);
+	}
 	//storke and fill
 	line(a=0, b=0, c=10, d=10) {
 		this.c.beginPath();
