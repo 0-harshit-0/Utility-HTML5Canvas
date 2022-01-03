@@ -1,38 +1,153 @@
-class Graph {
+class Node {
+	constructor(data) {
+		this.d = new Set().add(data);
+		this.visited = false;
+	}
+}
+class DGraph {
 	constructor(vertices) {
 		this.v = vertices;
-		this.list = new Array();
+		this.AdjList = new Map();
+		this.length = 0;
+		/*for (var i = 0; i < this.v; i++) {
+			this.list.push(new Node(null));
+		}*/
+	}
+	add(v, dv) { //sv | source vertices
+		if(v == dv) return 0;
+		if(this.AdjList.has(v)) {
+			if(this.AdjList.has(dv) && this.AdjList.get(dv).d.has(v)) return 0;
 
-		for (var i = 0; i < this.v; i++) {
-			this.list.push(new LinkedList());
+			this.AdjList.get(v).d.add(dv);
+		}else{
+			if(this.length >= this.v) return 0;
+			if(this.AdjList.has(dv) && this.AdjList.get(dv).d.has(v)) return 0;
+
+			this.AdjList.set(v, new Node(dv));
+			this.length++;
 		}
 	}
-	addEdge(source, des) {
-		if (source >= 0 && source <= this.v && source !== des) {
-			this.list[source].add(des);
+	adjacent(v1, v2) {
+		return this.AdjList.get(v1).d.has(v2);
+	}
+	neighbors(v1) {
+		return this.AdjList.get(v1).d;
+	}
+	remove(v, dv=false) {
+		if(!dv) {
+			this.AdjList.delete(v);
+		}else{
+			this.AdjList.get(v).d.delete(dv);
 		}
 	}
 	view() {
-		for (var i = 0; i < this.list.length; i++) {
-			console.log("list: "+i);
-			this.list[i].view();
+		const iterator1 = this.AdjList[Symbol.iterator]();
+
+		for (const item of iterator1) {
+			console.log(item);
+			console.log(item[1].d);
 		}
 	}
 	//travers
 	dfs(root) {
-		console.log(root);
+		console.log(root)
+		this.AdjList.get(root).visited = true;
+		let ite = [...this.neighbors(root)];
+		ite.forEach(z=> {
+			if(this.AdjList.get(z).visited){
+				dfs(z);
+			}
+		});
+	}
+
+	bfs(root) {
+		let q = new Queues();
 		let l = this.list;
 		l[root].visited = true;
-		let curr = l[root];
-		let connections = l[root].size;
+		q.push(root);
 
-		if (connections) {
+		while(q.size) {
+			let v = q.pop();
+			console.log(v);
+			//if (v ) {}
+			let connections = l[v].size;
 			for (var i = 0; i < connections; i++) {
-				let ele = l[root].remove(0);
+				let ele = l[v].remove(0);
 				if (!l[ele].visited) {
-					this.dfs(ele);
-					//visited = ele;
+					l[ele].visited = true;
+					q.push(ele);
 				}
+			}
+		}
+	}
+}
+//let g = new DGraph(6);
+class UGraph {
+	constructor(vertices) {
+		this.v = vertices;
+		this.AdjList = new Map();
+		this.length = 0;
+	}
+	add(v, dv) { //sv | source vertices
+		if(v == dv) return 0;
+		if(this.AdjList.has(v)) {
+			this.AdjList.get(v).d.add(dv);
+		}else{
+			if(this.length >= this.v) return 0;
+			this.AdjList.set(v, new Node(dv));
+			this.length++;
+		}
+		if(this.AdjList.has(dv)) {
+			this.AdjList.get(dv).d.add(v);
+		}else{
+			if(this.length >= this.v) return 0;
+			this.AdjList.set(dv, new Node(v));
+			this.length++;
+		}
+	}
+	adjacent(v1, v2) {
+		return this.AdjList.get(v1).d.has(v2);
+	}
+	neighbors(v1) {
+		return this.AdjList.get(v1).d;
+	}
+	remove(v, dv=false) {
+		if(!dv) {
+			this.AdjList.delete(v);
+		}else{
+			this.AdjList.get(v).d.delete(dv);
+		}
+	}
+	view() {
+		const iterator1 = this.AdjList[Symbol.iterator]();
+
+		for (const item of iterator1) {
+			console.log(item);
+			console.log(item[1].d);
+		}
+	}
+	//travers
+	dfs(root) {
+		console.log(root)
+		//console.log(this.AdjList.get(root))
+		this.AdjList.get(root).visited = true;
+		[...this.neighbors(root)].forEach(z=> {
+			if(!this.AdjList.get(z).visited){
+				this.dfs(z);
+			}
+		});
+	}
+	dfsS(root) {
+		let s = new Stack();
+		s.push(root);
+		while(s.length) {
+			root = s.pop();
+			if(!this.AdjList.get(root).visited) {
+				console.log(root)
+				this.AdjList.get(root).visited = true;
+				[...this.neighbors(root)].forEach(z=> {
+					s.push(z);
+				});
 			}
 		}
 	}
@@ -59,4 +174,11 @@ class Graph {
 	}
 }
 
-let g = new Graph(4);
+let g = new UGraph(8);
+g.add('a','b');
+g.add('a','c');
+g.add('a','e');
+g.add('b','d');
+g.add('b','f');
+g.add('c','g');
+g.add('f','e');

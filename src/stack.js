@@ -1,21 +1,21 @@
 class Stack {
 	constructor() {
-		this.size = 0;
+		this.length = 0;
 		this.stackarray = new Array();
 	}
 	push(value) {
 
 		this.stackarray.unshift(value);
-		this.size++;
+		this.length++;
 
 		return value;
 	}
 	pop() {
-		if (this.size < 0) {
-			this.size = 0;
+		if (this.length < 0) {
+			this.length = 0;
 			throw 'Stack is empty';
 		}
-		this.size--;
+		this.length--;
 		return this.stackarray.shift();
 		//return this.stackarray;
 	}
@@ -24,5 +24,5 @@ class Stack {
 	}
 }
 
-let myStack = new Stack();
+//let myStack = new Stack();
 

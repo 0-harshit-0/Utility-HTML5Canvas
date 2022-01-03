@@ -1,4 +1,4 @@
-let canvas = document.querySelector('#canvas');
+/*let canvas = document.querySelector('#canvas');
 let ctx = canvas.getContext('2d');
 let s = new VecShapes(ctx);
 let timeout = false;
@@ -12,4 +12,4 @@ addEventListener('resize', function(e) {//debounce
 	timeout = setTimeout(getDimensions, 500);
 });
 s.eqTri(10, new Vector2D(20, 20), 45);
-s.stroke('red', 2)
+s.stroke('red', 2);*/
