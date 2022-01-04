@@ -1,19 +1,19 @@
 
 class Queues {
 	constructor() {
-		this.s = 0;
+		this.length = 0;
 		this.queuearray = new Array();
 	}
 	push(value) {
 		
 		this.queuearray.push(value);
-		this.s++;
+		this.length++;
 
 		return value;
 	}
 	pop() {
-		if (!this.s) throw 'Queue is empty';
-		this.s--;
+		if (!this.length) throw 'Queue is empty';
+		this.length--;
 		
 		return this.queuearray.shift();
 	}

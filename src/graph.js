@@ -154,22 +154,20 @@ class UGraph {
 
 	bfs(root) {
 		let q = new Queues();
-		let l = this.list;
-		l[root].visited = true;
+		this.AdjList.get(root).visited = true;
 		q.push(root);
 
-		while(q.size) {
+		while(q.length) {
 			let v = q.pop();
 			console.log(v);
-			//if (v ) {}
-			let connections = l[v].size;
-			for (var i = 0; i < connections; i++) {
-				let ele = l[v].remove(0);
-				if (!l[ele].visited) {
-					l[ele].visited = true;
-					q.push(ele);
+			//if (v == root) {}
+			[...this.neighbors(v)].forEach(z=> {
+				if(!this.AdjList.get(z).visited){
+					
+					this.AdjList.get(z).visited = true;
+					q.push(z);
 				}
-			}
+			});
 		}
 	}
 }
@@ -177,8 +175,8 @@ class UGraph {
 let g = new UGraph(8);
 g.add('a','b');
 g.add('a','c');
-g.add('a','e');
+g.add('b','e');
 g.add('b','d');
-g.add('b','f');
+g.add('e','h');
 g.add('c','g');
-g.add('f','e');
+g.add('c','f');
