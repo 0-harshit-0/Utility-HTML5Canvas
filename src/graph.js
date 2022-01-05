@@ -172,11 +172,15 @@ class UGraph {
 	}
 }
 
-let g = new UGraph(8);
-g.add('a','b');
-g.add('a','c');
-g.add('b','e');
-g.add('b','d');
-g.add('e','h');
-g.add('c','g');
-g.add('c','f');
+let g = new UGraph(10);
+g.add('fr','ma');
+g.add('fr','wu');
+g.add('fr','ka');
+g.add('ma','kar');
+g.add('kar','au');
+g.add('au','mu');
+g.add('wu','nu');
+g.add('nu','su');
+g.add('nu','mu');
+g.add('wu','er');
+g.add('ka','mu');

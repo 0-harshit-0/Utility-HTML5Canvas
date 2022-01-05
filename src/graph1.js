@@ -1,68 +1,21 @@
-class Node {
-	constructor(data, nxt) {
-		this.d = data;
-		this.next = new Array();
-		this.visited = false;
-	}
-}
-class DGraph {
+class Graph {
 	constructor(vertices) {
 		this.v = vertices;
-		this.AdjList = new Map();
-		this.length = 0;
-		/*for (var i = 0; i < this.v; i++) {
-			this.list.push(new Node(null));
-		}*/
-	}
-	add(v, dv) { //sv | source vertices
-		if(v == dv) return 0;
-		if(this.AdjList.has(v)) {
-			if(this.AdjList.has(dv) && this.AdjList.get(dv).has(v)) return 0;
+		this.list = new Array();
 
-			this.AdjList.get(v).add(dv);
-		}else{
-			if(this.length >= this.v) return 0;
-			if(this.AdjList.has(dv) && this.AdjList.get(dv).has(v)) return 0;
-
-			this.AdjList.set(v, new Set().add(dv));
+		for (var i = 0; i < this.v; i++) {
+			this.list.push(new LinkedList());
 		}
-		this.length++;
+	}
+	addEdge(source, des) {
+		if (source >= 0 && source <= this.v && source !== des) {
+			this.list[source].add(des);
+		}
 	}
 	view() {
-		const iterator1 = this.AdjList[Symbol.iterator]();
-
-		for (const item of iterator1) {
-			console.log(item);
-		}
-	}
-}
-//let g = new DGraph(6);
-class UGraph {
-	constructor(vertices) {
-		this.v = vertices;
-		this.AdjList = new Map();
-		this.length = 0;
-	}
-	add(v, dv) { //sv | source vertices
-		if(v == dv) return (0);
-		if(this.AdjList.has(v)) {
-			this.AdjList.get(v).add(dv);
-		}else{
-			if(this.length >= this.v) return (0);
-			this.AdjList.set(v, new Set().add(dv));
-		}
-		if(this.AdjList.has(dv)){
-			this.AdjList.get(dv).add(v);
-		}else{
-			this.AdjList.set(dv, new Set().add(v));
-		}
-		this.length++;
-	}
-	view() {
-		const iterator1 = this.AdjList[Symbol.iterator]();
-
-		for (const item of iterator1) {
-			console.log(item);
+		for (var i = 0; i < this.list.length; i++) {
+			console.log("list: "+i);
+			this.list[i].view();
 		}
 	}
 	//travers
@@ -106,4 +59,4 @@ class UGraph {
 	}
 }
 
-let g = new UGraph(6);
+let g = new Graph(4);
