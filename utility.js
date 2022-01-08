@@ -1,21 +1,21 @@
 class Stack {
 	constructor() {
-		this.size = 0;
+		this.length = 0;
 		this.stackarray = new Array();
 	}
 	push(value) {
 
 		this.stackarray.unshift(value);
-		this.size++;
+		this.length++;
 
 		return value;
 	}
 	pop() {
-		if (this.size < 0) {
-			this.size = 0;
+		if (this.length < 0) {
+			this.length = 0;
 			throw 'Stack is empty';
 		}
-		this.size--;
+		this.length--;
 		return this.stackarray.shift();
 		//return this.stackarray;
 	}
@@ -24,21 +24,22 @@ class Stack {
 	}
 }
 
+
 class Queues {
 	constructor() {
-		this.s = 0;
+		this.length = 0;
 		this.queuearray = new Array();
 	}
 	push(value) {
 		
 		this.queuearray.push(value);
-		this.s++;
+		this.length++;
 
 		return value;
 	}
 	pop() {
-		if (!this.s) throw 'Queue is empty';
-		this.s--;
+		if (!this.length) throw 'Queue is empty';
+		this.length--;
 		
 		return this.queuearray.shift();
 	}
@@ -47,27 +48,28 @@ class Queues {
 	}
 }
 
-
 class Node {
 	constructor(data) {
 		this.d = data;
 		this.next = null;
+		this.visited = false;
 	}
 }
+
 class LinkedList {
 	constructor() {
 		this.head = null;
-		this.size = 0;
-		this.visited = false;
+		this.length = 0;
 	}
 	view() {
-		let curr = this.head;
-		while(curr) {
-			console.log(curr.d);
-			curr = curr.next;
-		}
+		// let curr = this.head;
+		// while(curr) {
+		// 	console.log(curr.d);
+		// 	curr = curr.next;
+		// }
+		return this;
 	}
-	iterate(n = 0) {
+	get(n = 0) { //by index
 		let curr = this.head;
 		for (var i = 0; i < n; i++) {
 			curr = curr.next;
@@ -86,36 +88,34 @@ class LinkedList {
 			}
 			current.next = node;
 		}
-		this.size++;
+		this.length++;
 		return element;
 	}
 	insert(element, index=0) {
-		if (index < 0 || index > this.size) {
-			return false;
+		if (index < 0 || index > this.length) return 0;
+
+		let node = new Node(element);
+		let curr = this.head, prev;
+		if (index == 0) {
+			node.next = this.head;
+			this.head = node;
 		}else {
-			let node = new Node(element);
-			let curr = this.head, prev;
-			if (index == 0) {
-				node.next = this.head;
-				this.head = node;
-			}else {
-				let i = 0;
-				while(i !== index) {
-					prev = curr;
-					curr = curr.next;
-					i++;
-				}
-				node.next = curr;
-				prev.next = node;
+			let i = 0;
+			while(i !== index) {
+				prev = curr;
+				curr = curr.next;
+				i++;
 			}
-			this.size++;
-			return element;
+			node.next = curr;
+			prev.next = node;
 		}
+		this.length++;
+		return element;
 	}
 	delete(element) {
-		let temp = false, curr = this.head, prev, i=0;
+		let deleted = false, curr = this.head, prev, i=0;
 		if (element == this.head.d) {
-			temp = true;
+			deleted = true;
 			this.head = this.head.next;
 		}else {
 			while(curr.next !== null) {
@@ -123,23 +123,23 @@ class LinkedList {
 				prev = curr;
 				curr = curr.next;
 				if (curr.d == element) {
-					temp = true;
+					deleted = true;
 					prev.next = curr.next;
 					break;
 				}
 			}
 		}
 		
-		if (temp) {
-			this.size--;
+		if (deleted) {
+			this.length--;
 			return i;
 		}else {
-			return temp;
+			return deleted;
 		}
 	}
-	remove(index=(this.size-1)) {
+	remove(index=(this.length-1)) {
 		let temp;
-		if (index < 0 || index > this.size) {
+		if (index < 0 || index > this.length-1) {
 			return false;
 		}else {
 			let curr = this.head, prev;
@@ -156,11 +156,12 @@ class LinkedList {
 				temp = curr.d;
 				prev.next = curr.next;
 			}
-			this.size--;
+			this.length--;
 			return temp;
 		}
 	}
 }
+
 
 class GNode {
 	constructor(data) {
