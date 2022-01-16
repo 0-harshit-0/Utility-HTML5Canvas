@@ -2,32 +2,59 @@
 class Shapes {
 	constructor(context) {
 		this.c = context;
-		//console.log('working');
+	}
+	fill(data, callback) {
+		let {c, w, dash, path} = data || {c:'black'};
+		this.c.fillStyle = c||'black';
+		this.c.fill(path);
 
-		//c/tx.lineCap = 'round';
+		if (typeof(callback) == "function") {
+			callback(data);
+		}else{
+			return data;
+		}
 	}
-	fill(clr) {
-		this.c.fillStyle = clr;
-		this.c.fill();
-	}
-	stroke(clr, w=1) {
-		this.c.lineWidth = w;
-		this.c.strokeStyle = clr;
-		this.c.stroke();
+	stroke(data, callback) {
+		let {c, w, dash, dashOff, path} = data || {c:'black'};
+		this.c.setLineDash(dash||[]);
+		this.c.lineDashOffset = dashOff||0;
+		this.c.lineWidth = w||1;
+		this.c.strokeStyle = c||'black';
+		this.c.stroke(path);
+
+		if (typeof(callback) == "function") {
+			callback(data);
+		}else{
+			return data;
+		}
 	}
 	clear(x=0, y=0, w=10, h=10) {
 		this.c.clearRect(x,y,w,h);
 	}
 	//storke and fill
-	line(a=0, b=0, c=10, d=10) {
-		this.c.beginPath();
-		this.c.moveTo(a, b);
-		this.c.lineTo(c, d);
+	line(data) {
+		let {path,x,y,x1,y1,cap} = data || {path:''};
+		let l = new Path2D(path||'');
+		this.c.lineCap = cap||'butt';
+		if(path=='') {
+			l.moveTo(x, y);
+			l.lineTo(x1, y1);
+		}
+		return l;
 		//this.c.closePath();
 	}
-	box(x=0, y=0, w=10, h=10) {
-		this.c.beginPath();
-		this.c.rect(x, y, w, h);
+	box(data, callback) {
+		let {path,x,y,w,h,cap} = data || {path:''};
+		let b = new Path2D(path||'');
+		this.c.lineJoin = cap||"miter";
+		if(!path || path=='') b.rect(x||1, y||1, w||10, h||10);
+
+		if (typeof(callback) == "function") {
+			data.path = b;
+			callback(data);
+		}else{
+			return b;
+		}
 		//this.c.closePath();
 	}
 	circle(x=0, y=0, r=10) {
