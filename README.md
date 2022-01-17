@@ -1,3 +1,7 @@
+<!-- 
+made changes in shapes
+ -->
+
 <h1>Utility-HTML5Canvas</h1>
 <p>
 	Pure JavaScript library for HTML5 Canvas API.
