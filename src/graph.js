@@ -9,9 +9,6 @@ class DGraph {
 		this.v = vertices;
 		this.AdjList = new Map();
 		this.length = 0;
-		/*for (var i = 0; i < this.v; i++) {
-			this.list.push(new Node(null));
-		}*/
 	}
 	add(v, dv) { //sv | source vertices
 		if(v == dv) return 0;

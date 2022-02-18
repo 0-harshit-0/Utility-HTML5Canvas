@@ -2,38 +2,98 @@
 class Shapes {
 	constructor(context) {
 		this.c = context;
-		//console.log('working');
+		this.path;
+	}
+	fill(data, callback) {
+/*
+	c :: color
+	path :: the canvas path object
+*/
+		let {c, path} = data || {c:'black'};
+		this.c.fillStyle = c || 'black';
+		if(typeof(path) != "object") path = this.path;
+		this.c.fill(path);
 
-		//c/tx.lineCap = 'round';
+		if (typeof(callback) == "function") {
+			callback(data);
+		}else{
+			return data;
+		}
 	}
-	fill(clr) {
-		this.c.fillStyle = clr;
-		this.c.fill();
-	}
-	stroke(clr, w=1) {
-		this.c.lineWidth = w;
-		this.c.strokeStyle = clr;
-		this.c.stroke();
+	stroke(data, callback) {
+/*
+	c :: color
+	path :: the canvas path object
+	w :: width of line
+	dash :: dash-space length (array)
+*/
+		let {c, w, dash, dashOff, path} = data || {c:'black'};
+		this.c.setLineDash(dash || []);
+		this.c.lineDashOffset = dashOff ?? 0;
+		this.c.lineWidth = w ?? 1;
+		this.c.strokeStyle = c || 'black';
+		if(typeof(path) != "object") path = this.path;
+		this.c.stroke(path);
+
+		if (typeof(callback) == "function") {
+			callback(data);
+		}else{
+			return data;
+		}
 	}
 	clear(x=0, y=0, w=10, h=10) {
 		this.c.clearRect(x,y,w,h);
 	}
-	//storke and fill
-	line(a=0, b=0, c=10, d=10) {
-		this.c.beginPath();
-		this.c.moveTo(a, b);
-		this.c.lineTo(c, d);
+	// ---storke and fill over--
+	line(data, callback) {
+		let {path,x,y,x1,y1,cap} = data || {path:''};
+		this.path = new Path2D(path || '');
+		this.c.lineCap = cap || 'butt';
+		if(typeof(path) != "object") {
+			this.path.moveTo(x, y);
+			this.path.lineTo(x1, y1);
+		}
+		if (typeof(callback) == "function") {
+			data.path = this.path;
+			callback(data);
+		}else{
+			return this.path;
+		}
 		//this.c.closePath();
 	}
-	box(x=0, y=0, w=10, h=10) {
-		this.c.beginPath();
-		this.c.rect(x, y, w, h);
+	rect(data, callback) {
+		let {path,x,y,w,h,cap} = data || {path:''};
+		this.path = new Path2D(path || '');
+		this.c.lineJoin = cap || "miter";
+		if(typeof(path) != "object") {
+			if (w == null || w == undefined) {
+				w = h;
+			}
+			if (h == null || h == undefined) {
+				h = w;
+			}
+			this.path.rect(x ?? 1, y ?? 1, w ?? 10, h ?? 10);
+		}
+
+		if (typeof(callback) == "function") {
+			data.path = this.path;
+			callback(data);
+		}else{
+			return this.path;
+		}
 		//this.c.closePath();
 	}
-	circle(x=0, y=0, r=10) {
-		this.c.beginPath();
-		this.c.arc(x, y, r, 0, Math.PI*2, false);
-		//this.c.closePath();
+	circle(data, callback) {
+		let {path,x,y,r} = data || {path:''};
+		this.path = new Path2D(path || '');
+		if(typeof(path) != "object") this.path.arc(x ?? 10, y ?? 10, r ?? 10, 0, Math.PI*2, false);
+		
+		if (typeof(callback) == "function") {
+			data.path = this.path;
+			callback(data);
+		}else{
+			return this.path;
+		}
 	}
 	ellipse(x=20, y=20, rX=20, rY=20, startAngle=0, endAngle=0, rotate=0, anticlock=false) {
 		this.c.beginPath();
