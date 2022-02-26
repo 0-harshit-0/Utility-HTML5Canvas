@@ -168,7 +168,7 @@ class UGraph {
 		}
 	}
 }
-
+/*
 let g = new UGraph(10);
 g.add('fr','ma');
 g.add('fr','wu');
@@ -181,3 +181,4 @@ g.add('nu','su');
 g.add('nu','mu');
 g.add('wu','er');
 g.add('ka','mu');
+*/

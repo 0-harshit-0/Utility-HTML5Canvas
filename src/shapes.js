@@ -13,6 +13,7 @@ class Shapes {
 		this.c.fillStyle = c || 'black';
 		if(typeof(path) != "object") path = this.path;
 		this.c.fill(path);
+		this.c.restore();
 
 		if (typeof(callback) == "function") {
 			callback(data);
@@ -40,9 +41,6 @@ class Shapes {
 		}else{
 			return data;
 		}
-	}
-	clear(x=0, y=0, w=10, h=10) {
-		this.c.clearRect(x,y,w,h);
 	}
 	// ---storke and fill over--
 	line(data, callback) {
@@ -83,7 +81,7 @@ class Shapes {
 		}
 		//this.c.closePath();
 	}
-	circle(data, callback) {
+	/*circle(data, callback) {
 		let {path,x,y,r} = data || {path:''};
 		this.path = new Path2D(path || '');
 		if(typeof(path) != "object") this.path.arc(x ?? 10, y ?? 10, r ?? 10, 0, Math.PI*2, false);
@@ -94,31 +92,61 @@ class Shapes {
 		}else{
 			return this.path;
 		}
-	}
-	ellipse(x=20, y=20, rX=20, rY=20, startAngle=0, endAngle=0, rotate=0, anticlock=false) {
-		this.c.beginPath();
-		this.c.ellipse(x, y, rX, rY, rotate, startAngle, endAngle, anticlock);
-	}
-	complex(l=10, x=10, y=10, sides=3, angle=0) {
-		let theta = 0;
-		let thetainc = Math.floor(360/sides);
-		this.c.save();
-		this.c.translate(x, y);
-		this.c.rotate(angle);
-		this.c.beginPath();
-
-		this.c.moveTo(l * Math.cos(theta), l * Math.sin(theta));
-
-		for (var i = 0; i < sides; i++) {
-			theta += thetainc*Math.PI/180;
-			this.c.lineTo(l* Math.cos(theta), l * Math.sin(theta));
-
+	}*/
+	ellipse(data, callback) {
+		let {path,x,y,r,rX,rY,startAngle,endAngle,rotate,anticlock} = data || {path:''};
+		this.path = new Path2D(path || '');
+		if(typeof(path) != "object") {
+			if(r) {
+				this.path.ellipse(x ?? 20, y ?? 20, r, r, rotate ?? 0, startAngle ?? 0, endAngle ?? Math.PI*2, anticlock ?? false);
+			}else {
+				this.path.ellipse(x ?? 20, y ?? 20, rX ?? 20, rY ?? 20, rotate ?? 0, startAngle ?? 0, endAngle ?? Math.PI*2, anticlock ?? false);
+			}
+			
 		}
-		this.c.closePath();
-		this.c.restore();
+		
+		if (typeof(callback) == "function") {
+			data.path = this.path;
+			callback(data);
+		}else{
+			return this.path;
+		}
 	}
-	eqTri(l=10, x=10, y=10, angle=0) {
-		this.complex(l, x, y, 3, angle)
+	polygon(data, callback) {
+		let {path,x,y,l,sides,rotate} = data || {path:''};
+		this.path = new Path2D(path || '');
+		l = l ?? 10;
+		sides = sides ?? 3;
+		this.c.save();
+		if(typeof(path) != "object") {
+			let theta = 0;
+			let thetainc = Math.floor(360/sides);
+			this.c.translate(x ?? 10, y ?? 10);
+			this.c.rotate(rotate ?? 0);
+
+			this.path.moveTo(l * Math.cos(theta), l * Math.sin(theta));
+			for (var i = 0; i < sides; i++) {
+				theta += thetainc*Math.PI/180;
+				this.path.lineTo(l * Math.cos(theta), l * Math.sin(theta));
+			}
+		}
+		if (typeof(callback) == "function") {
+			data.path = this.path;
+			callback(data);
+		}else{
+			return this.path;
+		}
+	}
+	eqTri(data, callback) {
+		let {path,x,y,l,rotate} = data || {path:''};
+		this.polygon({x:x, y:y, l:l, rotate:rotate});
+
+		if (typeof(callback) == "function") {
+			data.path = this.path;
+			callback(data);
+		}else{
+			return this.path;
+		}
 	}
 }
 

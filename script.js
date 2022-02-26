@@ -23,11 +23,19 @@ c.rect(200,100,100, 100);
 s.rect({path:c});
 s.fill({c:"blue"});
 
-let t = s.rect({x:100, y:100, w:100, h:20});
+let t = s.rect({x:170, y:100, w:100, h:20});
 s.stroke({path:t, c:"red", dash:[5,10], w:2});
 
-s.circle({x:300, y:300, r:50});
+s.ellipse({x:300, y:300, r:50});
 s.fill({c:"red"});
 
-s.line({x:500, y:300, x1:550, y1:350});
-s.stroke({c:"red", w:20});
+s.eqTri({x:180, y:270, l:50});
+s.fill();
+
+s.polygon({x:170, y:270, l:50});
+s.fill();
+
+s.ellipse({x:320, y:300, r:50});
+s.fill({c:"green"});
+/*s.line({x:500, y:300, x1:550, y1:350});
+s.stroke({c:"red", w:20});*/
