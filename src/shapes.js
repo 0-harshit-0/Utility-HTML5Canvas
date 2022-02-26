@@ -27,6 +27,7 @@ class Shapes {
 	path :: the canvas path object
 	w :: width of line
 	dash :: dash-space length (array)
+	dashOff :: sets the line dash offset, or "phase."
 */
 		let {c, w, dash, dashOff, path} = data || {c:'black'};
 		this.c.setLineDash(dash || []);
