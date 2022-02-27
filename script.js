@@ -24,18 +24,19 @@ s.rect({path:c});
 s.fill({c:"blue"});
 
 let t = s.rect({x:170, y:100, w:100, h:20});
+s.fill({c:"blue"});
 s.stroke({path:t, c:"red", dash:[5,10], w:2});
 
 s.ellipse({x:300, y:300, r:50});
 s.fill({c:"red"});
 
-s.eqTri({x:180, y:270, l:50});
+s.eqTri({x:380, y:270, l:50});
 s.fill();
 
-s.polygon({x:170, y:270, l:50});
+s.polygon({x:170, y:270, l:50, sides:9, rotate:10});
 s.fill();
 
-s.ellipse({x:320, y:300, r:50});
-s.fill({c:"green"});
+s.ellipse({x:320, y:300, rX:50, rY:90});
+s.stroke({c:"green"});
 /*s.line({x:500, y:300, x1:550, y1:350});
 s.stroke({c:"red", w:20});*/

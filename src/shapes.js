@@ -99,7 +99,7 @@ class Shapes {
 		this.path = new Path2D(path || '');
 		if(typeof(path) != "object") {
 			if(r) {
-				this.path.ellipse(x ?? 20, y ?? 20, r, r, rotate ?? 0, startAngle ?? 0, endAngle ?? Math.PI*2, anticlock ?? false);
+				this.path.ellipse(x ?? 20, y ?? 20, r ?? 20, r ?? 20, rotate ?? 0, startAngle ?? 0, endAngle ?? Math.PI*2, anticlock ?? false);
 			}else {
 				this.path.ellipse(x ?? 20, y ?? 20, rX ?? 20, rY ?? 20, rotate ?? 0, startAngle ?? 0, endAngle ?? Math.PI*2, anticlock ?? false);
 			}
@@ -116,17 +116,17 @@ class Shapes {
 	polygon(data, callback) {
 		let {path,x,y,l,sides,rotate} = data || {path:''};
 		this.path = new Path2D(path || '');
-		l = l ?? 10;
-		sides = sides ?? 3;
+		l = l ?? 20;
+		sides = sides ?? 5;
 		this.c.save();
 		if(typeof(path) != "object") {
 			let theta = 0;
 			let thetainc = Math.floor(360/sides);
-			this.c.translate(x ?? 10, y ?? 10);
+			this.c.translate(x ?? 20, y ?? 20);
 			this.c.rotate(rotate ?? 0);
 
 			this.path.moveTo(l * Math.cos(theta), l * Math.sin(theta));
-			for (var i = 0; i < sides; i++) {
+			for (var i = 0; i < sides-1; i++) {
 				theta += thetainc*Math.PI/180;
 				this.path.lineTo(l * Math.cos(theta), l * Math.sin(theta));
 			}
@@ -140,7 +140,7 @@ class Shapes {
 	}
 	eqTri(data, callback) {
 		let {path,x,y,l,rotate} = data || {path:''};
-		this.polygon({x:x, y:y, l:l, rotate:rotate});
+		this.polygon({x:x ?? 20, y:y ?? 20, l:l ?? 20, rotate:rotate ?? 0, sides:3});
 
 		if (typeof(callback) == "function") {
 			data.path = this.path;
