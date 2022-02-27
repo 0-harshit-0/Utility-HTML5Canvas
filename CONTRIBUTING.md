@@ -1,18 +1,14 @@
 # Contributing
 
-### Before you get started, Thank You.
+**Thnak you for your time. :smile:**
+
+If you are new and looking for a contribution guide check out <a href='https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors'>Github docs</a>.
 
 <hr>
 
-### If you are new and looking for a practical open source guide check out <a href='https://github.com/0-harshit-0/Contribute-To-This-Project'>Contribute-To-This-Project</a>.
+## Contribution steps:
+1. Make a new Branch (any name you like).
+2. Make changes according to issue you are working
+3. Make a pull request, sit back and have a break because you just did an awesome work.
 
-<hr>
-
-## Process
-
-1. Fork the project.
-2. Make a new Branch (any name you like).
-3. Make changes according to issue you are working
-4. Make a pull request, sit back and have a break because you just did an awesome work.
-
-### If the changes you made are usefull, your request will be accepted in a few days.
+### :monocle_face:Your request will be reviewed within few days.
