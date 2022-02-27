@@ -49,8 +49,8 @@ class Shapes {
 		this.path = new Path2D(path || '');
 		this.c.lineCap = cap || 'butt';
 		if(typeof(path) != "object") {
-			this.path.moveTo(x, y);
-			this.path.lineTo(x1, y1);
+			this.path.moveTo(x ?? 1, y ?? 1);
+			this.path.lineTo(x1 ?? 10, y1 ?? 1);
 		}
 		if (typeof(callback) == "function") {
 			data.path = this.path;
