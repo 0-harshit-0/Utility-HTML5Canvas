@@ -4,16 +4,16 @@ class Shapes {
 		this.c = context;
 		this.path;
 	}
-	fill(data, callback) {
+	fill(c='black', path='', callback) {
 /*
 	c :: color
 	path :: the canvas path object
 */
-		let {c, path} = data || {c:'black'};
-		this.c.fillStyle = c || 'black';
+		let data =  {color: c, pathObj: path};
+		this.c.fillStyle = c;
 		if(typeof(path) != "object") path = this.path;
 		this.c.fill(path);
-		this.c.restore();
+		//this.c.restore();
 
 		if (typeof(callback) == "function") {
 			callback(data);
@@ -21,7 +21,7 @@ class Shapes {
 			return data;
 		}
 	}
-	stroke(data, callback) {
+	stroke(c='black', w=1, dash=[], dashOff=0, path='', callback) {
 /*
 	c :: color
 	path :: the canvas path object
@@ -29,11 +29,11 @@ class Shapes {
 	dash :: dash-space length (array)
 	dashOff :: sets the line dash offset, or "phase."
 */
-		let {c, w, dash, dashOff, path} = data || {c:'black'};
-		this.c.setLineDash(dash || []);
-		this.c.lineDashOffset = dashOff ?? 0;
-		this.c.lineWidth = w ?? 1;
-		this.c.strokeStyle = c || 'black';
+		let data = {color:c, strokeWidth:w, dashArr: dash, dashOffset: dashOff, pathObj: path};
+		this.c.setLineDash(dash);
+		this.c.lineDashOffset = dashOff;
+		this.c.lineWidth = w;
+		this.c.strokeStyle = c;
 		if(typeof(path) != "object") path = this.path;
 		this.c.stroke(path);
 
@@ -44,13 +44,13 @@ class Shapes {
 		}
 	}
 	// ---storke and fill over--
-	line(data, callback) {
-		let {path,x,y,x1,y1,cap} = data || {path:''};
-		this.path = new Path2D(path || '');
+	line(x=1, y=1, x1=10, y1=10, cap='butt', path='', callback) {
+		let data = {pathObj:path, xPos:x, yPos:y, x1Pos:x1, y1Pos:y1, linecap:cap};
+		this.path = new Path2D(path);
 		this.c.lineCap = cap || 'butt';
 		if(typeof(path) != "object") {
-			this.path.moveTo(x ?? 1, y ?? 1);
-			this.path.lineTo(x1 ?? 10, y1 ?? 1);
+			this.path.moveTo(x, y);
+			this.path.lineTo(x1, y1);
 		}
 		if (typeof(callback) == "function") {
 			data.path = this.path;
