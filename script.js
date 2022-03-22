@@ -20,23 +20,18 @@ s.stroke({c:'red',w:5});
 
 let c = new Path2D();
 c.rect(200,100,100, 100);
-s.rect({path:c});
-s.fill({c:"blue"});
+let temp = s.rect(c);
+s.fill(temp, "blue");
 
-let t = s.rect({x:170, y:100, w:100, h:20});
-s.fill({c:"blue"});
-s.stroke({path:t, c:"red", dash:[5,10], w:2});
+s.ellipse('',300, 300, 50, 30);
+s.fill("", "red");
 
-s.ellipse({x:300, y:300, r:50});
-s.fill({c:"red"});
+s.eqTri('',380, 270, 50);
+s.fill("", "green");
 
-s.eqTri({x:380, y:270, l:50});
-s.fill();
+s.polygon('',0, 70, 50, 6, 180*Math.PI/180);
+s.fill("", "red");
 
-s.polygon({x:170, y:270, l:50, sides:9, rotate:10});
-s.fill();
 
-s.ellipse({x:320, y:300, rX:50, rY:90});
-s.stroke({c:"green"});
 /*s.line({x:500, y:300, x1:550, y1:350});
 s.stroke({c:"red", w:20});*/
