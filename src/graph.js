@@ -11,7 +11,7 @@ class UGraph {
 		this.AdjList = new Map();
 		this.length = 0;
 	}
-	add(v, dv) { //sv | source vertices
+	add(v, dv) { //dv | destination vertices
 		if(v == dv) return 0;
 		if(this.AdjList.has(v)) {
 			this.AdjList.get(v).d.add(dv);
@@ -45,7 +45,7 @@ class UGraph {
 		const iterator1 = this.AdjList[Symbol.iterator]();
 
 		for (const item of iterator1) {
-			console.log(item);
+			console.log(item[0]);
 			console.log(item[1].d);
 		}
 	}
