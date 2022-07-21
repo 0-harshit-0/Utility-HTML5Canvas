@@ -9,7 +9,7 @@ class Shapes {
 	c :: color
 	path :: the canvas path object
 */
-		let data =  {color: c, pathObj: path};
+		let data = {color: c, pathObj: path};
 		this.c.fillStyle = c;
 		if(path == null || typeof(path) != "object") path = this.path;
 		this.c.fill(path);
@@ -62,18 +62,15 @@ class Shapes {
 		}
 		//this.c.closePath();
 	}
-	rect(path='', x=1, y=1, w=10, h=10, cap='miter', callback) {
+	rect(path='', x=1, y=1, w, h, cap='miter', callback) {
 		let data = {pathObj:path, xPos:x, yPos:y, width:w, height:h, linecap:cap};
 
 		this.path = new Path2D(path);
 		this.c.lineJoin = cap;
 		if(typeof(path) != "object") {
-			if (w == null || w == undefined) {
-				w = h;
-			}
-			if (h == null || h == undefined) {
-				h = w;
-			}
+			w = w ?? h;
+			h = h ?? w;
+
 			this.path.rect(x, y, w, h);
 		}
 
@@ -97,12 +94,14 @@ class Shapes {
 			return this.path;
 		}
 	}*/
-	ellipse(path='', x=10, y=10, rX=10, rY=10, sa=0, ea=Math.PI*2, theta=0, clock=false, callback) {
+	ellipse(path='', x=10, y=10, rX, rY, sa=0, ea=Math.PI*2, theta=0, clock=false, callback) {
 		let data = {pathObj:path, xPos:x, yPos:y, radiiX:rX, radiiY:rY,
 			startAngle:sa, endAngle:ea, rotate:theta, anticlock:clock};
 
 		this.path = new Path2D(path);
 		if(typeof(path) != "object") {
+			rX = rX ?? rY;
+			rY = rY ?? rX;
 			this.path.ellipse(x, y, rX, rY, theta, sa, ea, clock);
 		}
 		

@@ -20,17 +20,19 @@ s.stroke({c:'red',w:5});
 
 function main() {
 	let c = new Path2D();
-	c.rect(200,100,100, 100);
-	let temp = s.rect(c);
-	s.fill(temp, "blue");
+	s.rect("", 200,100,100);
+	//ctx.fill(c);
 
-	s.ellipse('',300, 300, 50, 30);
+	//let temp = s.rect(c);
+	s.fill("", "blue");
+
+	s.ellipse('',300, 300, 50);
 	s.fill("", "red");
 
 	s.eqTri('',380, 270, 50);
 	s.fill("", "green");
 
-	s.polygon('',0, 70, 50, 6, 180*Math.PI/180);
+	s.polygon('',80, 70, 50, 6, 180*Math.PI/180);
 	s.fill("", "red");
 }
 
