@@ -108,7 +108,7 @@ g.add('nu','mu');
 g.add('wu','er');
 g.add('ka','mu');
 */
-class DGraph {
+class DGraph { //incomplete
 	constructor(vertices) {
 		this.v = vertices;
 		this.AdjList = new Map();

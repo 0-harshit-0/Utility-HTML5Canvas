@@ -26,7 +26,7 @@ class LinkedList {
 		}
 		return curr.d;
 	}
-	add(element) {
+	add(element) { // add a node at the end of the list
 		let current;
 		let node  = new Node(element);
 		if (this.head == null) {
@@ -41,7 +41,7 @@ class LinkedList {
 		this.length++;
 		return element;
 	}
-	insert(element, index=0) {
+	insert(element, index=0) { // insert a node between list
 		if (index < 0 || index > this.length) return 0;
 
 		let node = new Node(element);
@@ -62,7 +62,7 @@ class LinkedList {
 		this.length++;
 		return element;
 	}
-	delete(element) {
+	delete(element) {  // delete a node
 		let deleted = false, curr = this.head, prev, i=0;
 		if (element == this.head.d) {
 			deleted = true;
@@ -87,7 +87,7 @@ class LinkedList {
 			return deleted;
 		}
 	}
-	remove(index=(this.length-1)) {
+	remove(index=(this.length-1)) {  // remove a node from the end of the list
 		let temp;
 		if (index < 0 || index > this.length-1) {
 			return false;
