@@ -24,7 +24,7 @@ made changes in shapes
 <p>
 	If you want seperate files, navigate to 'src' folder and include it in your html file.
 	
-	<script type="text/javascript" src="/src/shapes.js" defer><br>
+	<script type="text/javascript" src="/src/shapes.js" defer>
 	<script type="text/javascript" src="/src/vector.js" defer>
 	<script type="text/javascript" src="/src/stack.js" defer>
 	<script type="text/javascript" src="/src/queue.js" defer>
