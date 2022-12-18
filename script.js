@@ -20,6 +20,9 @@ s.stroke({c:'red',w:5});
 
 function main() {
 	let c = new Path2D();
+	s.polygon('',350, 100, 100, 4, 45*Math.PI/180);
+	s.fill("", "red");
+	
 	s.rect("", 200,100,100);
 	//ctx.fill(c);
 
