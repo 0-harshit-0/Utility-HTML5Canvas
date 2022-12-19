@@ -19,24 +19,31 @@ s.stroke({c:'red',w:5});
 */
 
 function main() {
+<<<<<<< Updated upstream
 	let c = new Path2D();
 	s.polygon('',350, 100, 100, 4, 45*Math.PI/180);
 	s.fill("", "red");
 	
 	s.rect("", 200,100,100);
+=======
+	let a = s.rect("", 200,100,100);
+>>>>>>> Stashed changes
 	//ctx.fill(c);
 
 	//let temp = s.rect(c);
-	s.fill("", "blue");
+	s.fill(a, "blue");
 
 	s.ellipse('',300, 300, 50);
-	s.fill("", "red");
+	s.fill('', "red");
 
 	s.eqTri('',380, 270, 50);
-	s.fill("", "green");
+	s.stroke('', "green");
 
-	s.polygon('',80, 70, 50, 6, 180*Math.PI/180);
-	s.fill("", "red");
+	s.polygon('',80, 70, 50, 4, 0, [1,1,1]);
+	s.stroke('', "red");
+
+	s.polygon('',(1*Math.cos(0))+400, (1*Math.sin(0))+400, 50, 2, 0*Math.PI/180);
+	s.stroke('', "red");
 }
 
 let a = new UGraph(12);
