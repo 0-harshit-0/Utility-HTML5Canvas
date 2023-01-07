@@ -113,19 +113,19 @@ class Shapes {
 			return this.path;
 		}
 	}
-	polygon(path='', x=10, y=10, l=20, s=5, theta=0, sidesArr=[], callback) {
+	polygon(path='', x=10, y=10, l=20, s=5, theta=0, cap='butt', callback) {
 		let data = {pathObj:path, xPos:x, yPos:y, length:l, sides:s, rotate:theta};
 		this.path = new Path2D(path);
 		if(typeof(path) != "object") {
 			let tempTheta = 0;
 			let thetainc = Math.floor(360/s);
 			this.c.save();
+			this.c.lineJoin = cap;
 			this.c.translate(x, y);
 			this.c.rotate(theta);
 
 			this.path.moveTo(l * Math.cos(tempTheta), l * Math.sin(tempTheta));
 			for (var i = 0; i < s; i++) {
-				if (sidesArr.length && !sidesArr[i]) continue;
 				tempTheta += thetainc*Math.PI/180;
 				this.path.lineTo(l * Math.cos(tempTheta), l * Math.sin(tempTheta));
 			}

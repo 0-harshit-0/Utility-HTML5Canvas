@@ -22,6 +22,4 @@ class Queues {
 	}
 }
 
-var myQueue = new Queues();
-
 
