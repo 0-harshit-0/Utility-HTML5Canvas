@@ -5,17 +5,17 @@ Pure JavaScript library for HTML5 Canvas API.
 - Easy to use vector functions.
 - Create shapes of any number of sides.
 - Export Shapes/Canvas with ease.
-<hr>
 
 ## Installation
 
-Download the file or clone it.
-
+Download or clone it using.
+```cmd
+git clone https://github.com/0-harshit-0/Utility-HTML5Canvas.git
+```
 <img src='./res/download.png'>
 
 
 Include the utility.js file in your html file.
-
 ```html
 <script type="text/javascript" src="utility.js" defer></script>
 ```
