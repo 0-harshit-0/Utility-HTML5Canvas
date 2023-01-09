@@ -20,7 +20,7 @@ Include the utility.js file in your html file.
 <script type="text/javascript" src="utility.js" defer></script>
 ```
 
-If you want seperate files, you can include them like this
+or If you want seperate files, you can include them like this
 ```html
 <script type="text/javascript" src="/src/shapes.js" defer></script>
 <script type="text/javascript" src="/src/vector.js" defer></script>
@@ -28,12 +28,11 @@ If you want seperate files, you can include them like this
 <script type="text/javascript" src="/src/queue.js" defer></script>
 ```
 
-You can also use the JsFiddle CDN:
+or You can even use the JsFiddle CDN:
 ```html
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/0-harshit-0/Utility-HTML5Canvas/utility.js" defer></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/0-harshit-0/Utility-HTML5Canvas/utility.min.js" defer></script>
 ```
-<hr>
 
 ## Usage
 
