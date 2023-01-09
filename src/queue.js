@@ -1,24 +1,24 @@
 
 class Queues {
 	constructor() {
-		this.queuearray = new Array();
-		this.length = this.queuearray.length;
+		this.queueArray = new Array();
+		this.length = this.queueArray.length;
 	}
 	push(value) {
-		this.queuearray.push(value);
-		this.length = this.queuearray.length;
+		this.queueArray.push(value);
+		this.length = this.queueArray.length;
 
 		return value;
 	}
 	pop() {
 		if (!this.length) throw 'Queue is empty';
 		
-		const poped = this.queuearray.shift();
-		this.length = this.queuearray.length;
+		const poped = this.queueArray.shift();
+		this.length = this.queueArray.length;
 		return poped;
 	}
 	view()  {
-		return this.queuearray;
+		return this.queueArray;
 	}
 }
 

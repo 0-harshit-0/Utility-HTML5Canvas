@@ -1,6 +1,7 @@
 let canvas = document.querySelector('#canvas');
 let ctx = canvas.getContext('2d');
-let s = new Shapes(ctx);
+let s = new Shapes({canvas, context: ctx});
+
 let timeout = false;
 function getDimensions() {
 	canvas.width = innerWidth;
@@ -11,33 +12,32 @@ addEventListener('resize', function(e) {  //debounce
 	clearTimeout(timeout);
 	timeout = setTimeout(getDimensions, 500);
 });
-
-
-/*
-s.line({x:1,y:1,x1:20,y1:20});
-s.stroke({c:'red',w:5});
-*/
-
+let tempData = null;
 function main() {
-	let c = new Path2D();
-	s.polygon('', 350, 100, 100, 4, 45*Math.PI/180);
-	s.fill("", "red");
+	s.polygon({x: 50, y: 50, length: 100, faces: 5, rotation: 45*Math.PI/180});
+	s.fill({color: "red"});
 	
-	s.rect("", 200,100,100);
-	s.fill("", "blue");
+	s.rect({x: 200, y: 200, size: 100});
+	s.stroke({color: "blue"});
 
-	s.ellipse('', 300, 300, 50);
-	s.fill('', "red");
+	s.ellipse({x: 300, y: 300, radius: 50});
+	tempData = s.strokefill({scolor: "black", fcolor: "orange"});
 
-	s.eqTri('', 380, 270, 50);
-	s.stroke('', "green");
+	s.eqTri({x: 500, y: 500, length: 100, rotation: 0*Math.PI/180});
+	s.fill({color: "green"});
 
-	s.polygon('', 80, 70, 50, 4, -(45*Math.PI/180));
-	s.stroke('', "red");
-
-	s.line('', (1*Math.cos(0))+400, (1*Math.sin(0))+400, 400 800);
-	s.stroke('', "red");
+	s.line({x: 1, y: 1, x1: 400, y1: 400});
+	s.stroke();
+	// in path of line
+	console.log(s.inPath({x: 400, y: 400}));
+	//console.log(s.inPath({x: 400, y: 400}));
 }
+
+addEventListener("keypress", e => {
+	if (e.key == "a") {
+		s.exportPath(tempData);
+	}
+});
 
 let a = new UGraph(12);
 a.add(0,1);
@@ -59,6 +59,3 @@ a.add(9,10);
 a.add(10,11);
 
 getDimensions();
-
-/*s.line({x:500, y:300, x1:550, y1:350});
-s.stroke({c:"red", w:20});*/
