@@ -41,14 +41,6 @@ class CanvasOptions {
 		this.path = new Path2D(path);
 		return this.path;
 	}
-	transferControl(worker) {
-		let offscreen = this.canvas.transferControlToOffscreen();
-		if (!worker) return {offscreen};
-
-		worker.postMessage({ canvas: offscreen }, [offscreen]);
-
-		return {offscreen};
-	}
 	captureStream(framerate = 60) {
 		return this.canvas.captureStream(framerate);
 	}
