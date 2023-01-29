@@ -3,20 +3,26 @@ class ExtraUtiliy {
 	static downloadFile(name, url) {
 		let download = document.createElement('a');
 
-	  download.setAttribute("href", url);
-	  download.setAttribute("download", name);
+		download.setAttribute("href", url);
+		download.setAttribute("download", name);
 		download.click();
 		download.remove();
 	}
 }
 class CanvasOptions {
 	constructor({canvas, context}) {
-		if (!canvas || !context) throw "canvas or context is not defined";
-
 		this.canvas = canvas;
 		this.ctx = context;
 		this.path = new Path2D();
 	}
+	
+	/* ----------- interactive start ------------ */
+	inPath({path, x, y}) {
+		path = this.checkPath(path);
+		return this.ctx.isPointInPath(path, x ?? y, y ?? x);
+	}
+	/* ----------- interactive over ------------ */
+	
 	checkCanvas(canvas) {
 		if(!canvas) {
 			return this.canvas;
@@ -24,12 +30,6 @@ class CanvasOptions {
 			return canvas;
 		}
 	}
-	/* ----------- interactive start ------------ */
-	inPath({path, x, y}) {
-		path = this.checkPath(path);
-		return this.ctx.isPointInPath(path, x ?? y, y ?? x);
-	}
-	/* ----------- interactive over ------------ */
 	checkPath(path) {
 		if(path == null || typeof(path) != "object") {
 			return this.path;
