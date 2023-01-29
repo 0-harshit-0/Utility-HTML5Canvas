@@ -13,7 +13,7 @@ class CanvasOptions {
 	constructor({canvas, context}) {
 		this.canvas = canvas;
 		this.ctx = context;
-		this.path = new Path2D();
+		this.path = null;
 	}
 	
 	/* ----------- interactive start ------------ */
@@ -22,7 +22,7 @@ class CanvasOptions {
 		return this.ctx.isPointInPath(path, x ?? y, y ?? x);
 	}
 	/* ----------- interactive over ------------ */
-	
+
 	checkCanvas(canvas) {
 		if(!canvas) {
 			return this.canvas;
